@@ -1,1 +1,3 @@
-this repo includes code practice of the Spring Boot Course, after each video i watch, i try the code my self and 'git's to 'push' it here :|
+
+# SpringBootCoursePlaygroundRepo
+this is a spring boot learn to code repo where after each video i watch in the course and apply git to be pushed here 
