@@ -1,7 +1,7 @@
 package io.sc0.REST.API.Demo.dao;
 
 
-import io.sc0.REST.API.Demo.Exception.EmployeeNotFoundException;
+import io.sc0.REST.API.Demo.Exception.NotFoundException;
 import io.sc0.REST.API.Demo.entity.Employee;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
@@ -41,7 +41,7 @@ public class EmployeeRepo implements IEmployeeRepo {
         return query.getSingleResult();
 
         } catch (NoResultException e) {
-            throw new EmployeeNotFoundException("Employee with ID " + employeeId + " not found.");
+            throw new NotFoundException("Employee with ID " + employeeId + " not found.");
         }
 
     }
@@ -58,7 +58,7 @@ public class EmployeeRepo implements IEmployeeRepo {
         Employee existingEmployee =  getEmployee(employeeId);
 
         if(existingEmployee == null)
-            throw new EmployeeNotFoundException("Employee Not Found Please Try Employee with other Id");
+            throw new NotFoundException("Employee Not Found Please Try Employee with other Id");
 
         Query q =  entityManager.createQuery("DELETE FROM Employee WHERE id=:id");
         q.setParameter("id",employeeId);

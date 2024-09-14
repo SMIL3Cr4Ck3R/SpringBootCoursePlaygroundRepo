@@ -1,7 +1,7 @@
 package io.sc0.REST.API.Demo.rest.controllers;
 
 
-import io.sc0.REST.API.Demo.Exception.EmployeeNotFoundException;
+import io.sc0.REST.API.Demo.Exception.NotFoundException;
 import io.sc0.REST.API.Demo.entity.Student;
 import jakarta.annotation.PostConstruct;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +38,7 @@ public class EmployeeRESTController {
     public ResponseEntity<Student> getStudent(@PathVariable int studentId) {
 
         if(studentId < 0 || studentId >= studentList.size())
-            throw new EmployeeNotFoundException("Student out of bound");
+            throw new NotFoundException("Student out of bound");
 
 
         return ResponseEntity.ok(studentList.get(studentId));
