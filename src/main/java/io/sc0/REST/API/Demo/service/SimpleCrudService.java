@@ -15,6 +15,9 @@ public interface SimpleCrudService<T> {
     List<T> createMany(List<T> collection);
 
     T updateOne(int bookId);
+
+    Book updateOne(int bookId, Book updatedBook);
+
     List<T> updateMany(List<T> collection);
 
     void deleteOne(int id);
